@@ -1,4 +1,4 @@
-output "minio_keys" {
+output "minio_container_env" {
   description = "Minio server environment variables containing access keys"
-  value       = module.containers.minio_container_env
+  value       = docker_container.minio.env
 }
