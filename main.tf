@@ -18,4 +18,5 @@ module "containers" {
   minio_container_access_key  = var.minio_access_key
   minio_container_secret_key  = var.minio_secret_key
   minio_container_buckets     = var.minio_buckets
+  
 }
