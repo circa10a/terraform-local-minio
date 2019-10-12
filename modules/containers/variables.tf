@@ -36,13 +36,16 @@ variable "minio_container_networks" {
   default     = []
 }
 
-variable "minio_container_volume_config" {
-  type        = map(string)
-  description = "Minio server container volume configuration"
-  default = {
-    volume_name = "object_storage"
-    mount_path  = "/data"
-  }
+variable "minio_container_volume_name" {
+  type        = string
+  description = "Minio server container volume name"
+  default     = "minio"
+}
+
+variable "minio_container_volume_mount_path" {
+  type        = string
+  description = "Minio server container volume mount path"
+  default     = "/data"
 }
 
 variable "minio_container_ports" {

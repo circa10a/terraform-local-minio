@@ -13,8 +13,8 @@ resource "docker_container" "minio" {
     }
   }
   volumes {
-    volume_name    = var.minio_container_volume_config.volume_name
-    container_path = var.minio_container_volume_config.mount_path
+    volume_name    = var.minio_container_volume_name
+    container_path = var.minio_container_volume_mount_path
   }
   dynamic "ports" {
     for_each = [for port_map in var.minio_container_ports : {

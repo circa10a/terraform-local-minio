@@ -1,8 +1,5 @@
-variable "minio_container_volume_config" {
-  type        = map(string)
-  description = "Minio server container volume configuration"
-  default = {
-    volume_name = "object_storage"
-    mount_path  = "/data"
-  }
+variable "minio_volume_name" {
+  type        = string
+  description = "Docker volume name to hold data in buckets in minio"
+  default     = "minio"
 }
