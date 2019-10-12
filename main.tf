@@ -14,6 +14,12 @@ resource "docker_container" "minio" {
   image   = var.minio_container_image
   name    = var.minio_container_name
   command = var.minio_container_command
+  env     = var.minio_container_environment_variables
+  restart = var.minio_container_restart_policy
+  volumes {
+    volume_name    = var.minio_container_volume_config.volume_name
+    container_path = var.minio_container_volume_config.mount_path
+  }
   dynamic "ports" {
     for_each = [for port_map in var.minio_container_ports : {
       _internal = port_map.internal
@@ -23,11 +29,5 @@ resource "docker_container" "minio" {
       internal = ports.value._internal
       external = ports.value._external
     }
-  }
-  env     = var.minio_container_environment_variables
-  restart = var.minio_container_restart_policy
-  volumes {
-    volume_name    = var.minio_container_volume_config.volume_name
-    container_path = var.minio_container_volume_config.mount_path
   }
 }

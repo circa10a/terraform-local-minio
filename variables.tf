@@ -16,18 +16,6 @@ variable "minio_container_command" {
   default     = ["server", "/data"]
 }
 
-variable "minio_container_ports" {
-  type = list(object({
-    internal = number
-    external = number
-  }))
-  description = "Minio server listening ports"
-  default = [{
-    internal = 9000
-    external = 9000
-  }]
-}
-
 variable "minio_container_environment_variables" {
   type        = list(string)
   description = "Minio server environment variables"
@@ -47,6 +35,18 @@ variable "minio_container_volume_config" {
     volume_name = "object_storage"
     mount_path  = "/data"
   }
+}
+
+variable "minio_container_ports" {
+  type = list(object({
+    internal = number
+    external = number
+  }))
+  description = "Minio server listening ports"
+  default = [{
+    internal = 9000
+    external = 9000
+  }]
 }
 
 variable "minio_network_config" {
