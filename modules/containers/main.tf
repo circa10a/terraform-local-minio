@@ -20,11 +20,9 @@ resource "docker_container" "minio" {
   env     = local.minio_env_vars
   restart = var.minio_container_restart_policy
   dynamic "networks_advanced" {
-    for_each = [for network in var.minio_container_networks : {
-      _name = network.name
-    }]
+    for_each = var.minio_container_networks
     content {
-      name = networks_advanced.value._name
+      name = networks_advanced.value["name"]
     }
   }
   volumes {
