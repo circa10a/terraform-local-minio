@@ -6,10 +6,10 @@ Automatically install and create local buckets with public policies for testing 
 
 ```tf
 module "terraform-local-minio" {
-  source  = "circa10a/minio/local"
-  minio_access_key="secret"
-  minio_secret_key="super_secret"
-  minio_buckets=["bucket1", "bucket2"]
+  source           = "circa10a/minio/local"
+  minio_access_key = "secret"
+  minio_secret_key = "super_secret"
+  minio_buckets    = ["bucket1", "bucket2"]
 }
 ```
 
