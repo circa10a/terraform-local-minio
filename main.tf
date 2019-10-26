@@ -13,6 +13,8 @@ module "containers" {
   minio_container_networks = [{
     name = var.minio_network_name
   }]
+  minio_container_image       = var.minio_container_image
+  mc_container_image          = var.mc_container_image
   minio_container_port        = var.minio_container_port
   minio_container_volume_name = var.minio_volume_name
   minio_container_access_key  = var.minio_access_key

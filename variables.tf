@@ -4,6 +4,18 @@ variable "minio_docker_host" {
   default     = "unix:///var/run/docker.sock"
 }
 
+variable "minio_container_image" {
+  type        = string
+  description = "Minio server image"
+  default     = "minio/minio:latest"
+}
+
+variable "mc_container_image" {
+  type        = string
+  description = "Minio client image"
+  default     = "minio/mc:latest"
+}
+
 variable "minio_container_port" {
   type        = number
   description = "Minio server listening port"
