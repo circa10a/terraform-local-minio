@@ -10,6 +10,10 @@ module "networks" {
 
 module "containers" {
   source = "./modules/containers"
+  depends_on = [
+    module.volumes,
+    module.networks
+  ]
   minio_container_networks = [{
     name = var.minio_network_name
   }]
