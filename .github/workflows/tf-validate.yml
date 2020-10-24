@@ -11,4 +11,4 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Terraform validate
-      run: docker run --rm --entrypoint sh -v $(pwd):/tmp/terraform-minio-local -v /var/run/docker.sock:/var/run/docker.sock -w /tmp/terraform-minio-local hashicorp/terraform:0.13.0 -c "terraform init && terraform validate && terraform plan"
+      run: docker run --rm --entrypoint sh -v $(pwd):/tmp/terraform-minio-local -v /var/run/docker.sock:/var/run/docker.sock -w /tmp/terraform-minio-local hashicorp/terraform:0.13.0 -c "terraform init && terraform validate && terraform fmt -recursive -check && terraform plan"
